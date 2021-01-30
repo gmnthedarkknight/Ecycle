@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
@@ -12,7 +12,17 @@ def about():
 
 @app.route('/blog')
 def blog():
-	return 'This is the blog'
+	return render_template('blog.html', author= 'Steven Grady')
+	'''
+	<html>
+	<head>
+	<body>
+	<h2> Welcome to this blog!</h2>
+	<p> I am Steven the author of this blog </p>
+	</body>
+	</head>
+	</html> does the same thing as blog.html
+	'''
 
 @app.route('/blog/<string:blog_id>') #this is a blog id variable that was passed into the URL
 									 # You decide whether or not to define the <blog_id> variable with
