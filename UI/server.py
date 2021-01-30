@@ -12,17 +12,10 @@ def about():
 
 @app.route('/blog')
 def blog():
-	return render_template('blog.html', author= 'Steven Grady')
-	'''
-	<html>
-	<head>
-	<body>
-	<h2> Welcome to this blog!</h2>
-	<p> I am Steven the author of this blog </p>
-	</body>
-	</head>
-	</html> does the same thing as blog.html
-	'''
+	posts = [{'title':'Technology in 2019', 'author': 'Steven Grady'},
+			{'title': 'Expansion of oil in Russia', 'author': 'KSI'}]
+
+	return render_template('blog.html', author= 'Steven Grady', sunny=False, posts= posts)
 
 @app.route('/blog/<string:blog_id>') #this is a blog id variable that was passed into the URL
 									 # You decide whether or not to define the <blog_id> variable with

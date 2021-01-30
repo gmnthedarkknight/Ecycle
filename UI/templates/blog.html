@@ -3,6 +3,21 @@
 	<meta charset="utf-8">
 	<title>Blog</title>
 	<body><h2> Welcome to this blog!</h2>
-	<p> I am {{author}}, the author of this blog </p></body>
+	<p> I am {{author}}, the author of this blog </p>
+	{% if sunny %} <!-- the double curly brackets 
+					allocate for a variable,
+					in this case "sunny" is the
+					variable being passed into this
+					template and the % signs allocate for a command-->
+	<p>Today it is sunny</p>
+	{% else %}
+	<p>Today it is rainy</p>
+	{% endif %}
+	{% for post in posts%}
+		<h2>{{post.title}}</h2>
+		<h3>Author: {{post.author}}</h3>
+	{% endfor %} <!-- Spacing is SO important. I added a space before the '%' like
+				this: ' %' and it rendered my for loop as "incomplete" as if I didn't write 'endfor'. Just something to be aware of...-->
+</body>
 </head>
 </html>
