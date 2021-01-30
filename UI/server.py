@@ -6,5 +6,22 @@ app = Flask(__name__)
 def home():
 	return 'Hello World!'
 
+@app.route('/about')
+def about():
+	return 'The about page'
+
+@app.route('/blog')
+def blog():
+	return 'This is the blog'
+
+@app.route('/blog/<string:blog_id>') #this is a blog id variable that was passed into the URL
+									 # You decide whether or not to define the <blog_id> variable with
+									 # a data type i.e. i could've written <int:blog_id>
+									 #or simply <blog_id>
+							#what carrots <> do is specify a rule
+def blogpost(blog_id):
+	return 'This is blog post number ' + blog_id #printing out the blog id #
+
+
 if __name__ == '__main__':
 	app.run()
